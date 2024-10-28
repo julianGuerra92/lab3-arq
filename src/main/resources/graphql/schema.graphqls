@@ -34,7 +34,7 @@ enum Role {
     USER
 }
 
-# Query and Mutation operations
+# Query operations
 type Query {
     # Get a user by its ID
     getUser(id: String!): User

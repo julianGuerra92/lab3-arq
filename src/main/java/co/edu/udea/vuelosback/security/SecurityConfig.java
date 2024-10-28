@@ -42,7 +42,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authRequest ->
                         authRequest
                                 .requestMatchers("/graphql").permitAll()
-                                .requestMatchers("/graphiql", "/vendor/graphiql/**").permitAll()
+                                .requestMatchers("/graphiql", "/graphiql/**").permitAll()
                                 .requestMatchers("/actuator/**").permitAll()
                                 .anyRequest().denyAll()
                 )
