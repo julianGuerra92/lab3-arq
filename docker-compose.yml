@@ -1,8 +1,22 @@
-version: '3'
+#version: '3'
+#
+#services:
+#  orders-db:
+#    container_name: orders_database
+#    image: postgres:16.2
+#    restart: always
+#    volumes:
+#      - ./postgres:/var/lib/postgresql/data
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=123456
+#      - POSTGRES_DB=auth_aut
 
 services:
-  orders-db:
-    container_name: orders_database
+  postgres:
+    container_name: backend_flights_database
     image: postgres:16.2
     restart: always
     volumes:
@@ -13,3 +27,32 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123456
       - POSTGRES_DB=auth_aut
+
+  vuelosback:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/auth_aut
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 123456
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+
+volumes:
+  postgres_data:
+    driver: local

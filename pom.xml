@@ -11,10 +11,11 @@
 	<groupId>co.edu.udea.vuelosback</groupId>
 	<artifactId>vuelosback</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 	<name>vuelosback</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
@@ -114,7 +115,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.3.1</version>
 				<configuration>
+					<encoding>UTF-8</encoding>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>

@@ -43,6 +43,7 @@ public class SecurityConfig {
                         authRequest
                                 .requestMatchers("/graphql").permitAll()
                                 .requestMatchers("/graphiql", "/vendor/graphiql/**").permitAll()
+                                .requestMatchers("/actuator/**").permitAll()
                                 .anyRequest().denyAll()
                 )
                 .sessionManagement(sessionManager ->
