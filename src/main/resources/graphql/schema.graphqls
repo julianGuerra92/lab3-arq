@@ -1,3 +1,5 @@
+
+# Entity that represents a user registered in the application
 type User {
     id: ID!
     fullName: String!
@@ -6,15 +8,18 @@ type User {
     role: Role!
 }
 
+# Response that contains the token generated after a successful login or registration
 type AuthResponse {
     token: String!
 }
 
+# Request to login a user
 input LoginRequest {
     email: String!
     password: String!
 }
 
+# Request to register a new user
 input RegisterRequest {
     fullName: String!
     email: String!
@@ -23,16 +28,22 @@ input RegisterRequest {
     acceptTerms: Boolean!
 }
 
+# Enum that represents the roles that a user can have
 enum Role {
     ADMIN
     USER
 }
 
+# Query and Mutation operations
 type Query {
+    # Get a user by its ID
     getUser(id: String!): User
 }
 
+# Mutation operations
 type Mutation {
+    # Login a user
     login(request: LoginRequest!): AuthResponse
+    # Register a new user
     register(request: RegisterRequest!): AuthResponse
 }
