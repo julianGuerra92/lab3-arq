@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "udea-pruebas",
-      "image": "851725255015.dkr.ecr.us-east-1.amazonaws.com/udea-pruebas",
+      "image": "851725255015.dkr.ecr.us-east-1.amazonaws.com/udea-pruebas:latest",
       "cpu": 0,
       "portMappings": [
         {

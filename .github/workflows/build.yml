@@ -13,7 +13,7 @@ env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: udea-pruebas
   ECS_SERVICE: udea-pruebas
-  ECS_CLUSTER: udea-pruebas
+  ECS_CLUSTER: udea-pruebas-cluster
   ECS_TASK_DEFINITION: .github/workflows/task-definition.json
   CONTAINER_NAME: udea-pruebas
 
